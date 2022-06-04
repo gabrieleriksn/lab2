@@ -6,10 +6,13 @@ public class Disciplina {
 	
 	private String nomeDisciplina;
 	private int horasDeEstudo;
-	private double[] notas = new double[4];
+	private Nota[] notas = new Nota[4];
 	
 	public Disciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
+		for (int i = 0; i < notas.length; i++) {
+			notas[i] = new Nota();
+		}
 	}
 	
 	public void cadastraHoras(int horas) {
@@ -17,7 +20,7 @@ public class Disciplina {
 	}
 	
 	public void cadastraNota(int nota, double valorNota) {
-		notas[nota - 1] = valorNota;
+		notas[nota - 1] = new Nota(valorNota);
 	}
 	
 	public boolean aprovado() {
@@ -28,13 +31,13 @@ public class Disciplina {
 		return false;
 	}
 	
-	private double mediaDoAluno(double[] nums) {
-		double sum = 0;
-		for (double num : nums) {
-			sum += num;
+	private double mediaDoAluno(Nota[] notas) {
+		double soma = 0;
+		for (Nota nota : notas) {
+			soma += nota.getValorNota();
 		}
 		
-		return sum / nums.length;
+		return soma / notas.length;
 	}
 	
 	@Override

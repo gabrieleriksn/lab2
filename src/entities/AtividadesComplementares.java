@@ -2,31 +2,41 @@ package entities;
 
 public class AtividadesComplementares {
 	
-	private int[] estagios;
+	private Estagio[] estagios;
 	private int indiceEstagios;
-	private int[] projetos;
+	private Projeto[] projetos;
 	private int indiceProjetos;
-	private double horasDeCursos; 
+	private Cursos cursos; 
 	
 	public AtividadesComplementares() {
-		estagios = new int[9];
-		projetos = new int[16];
+		estagios = new Estagio[9];
+		for (int i = 0; i < estagios.length; i++) {
+			estagios[i] = new Estagio();
+		}
+		
+		projetos = new Projeto[16];
+		for (int i = 0; i < projetos.length; i++) {
+			projetos[i] = new Projeto();
+		}
+		
+		cursos = new Cursos();
+		
 		indiceEstagios = 0;
 		indiceProjetos = 0;
 	}
 	
 	public void adicionarEstagio(int horas) {
-		estagios[indiceEstagios] = horas;
+		estagios[indiceEstagios] = new Estagio(horas);
 		indiceEstagios++;
 	}
 	
 	public void adicionarProjeto(int meses) {
-		projetos[indiceProjetos] = meses;
+		projetos[indiceProjetos] = new Projeto(meses);
 		indiceProjetos++;
 	}
 	
 	public void adicionarCurso(double horas) {
-		horasDeCursos += horas;
+		cursos.adicionarHorasDeCursos(horas);
 	}
 	
 	public int contaCreditos() {
@@ -39,8 +49,8 @@ public class AtividadesComplementares {
 	
 	private int contaCreditosEstagios() {
 		int creditos = 0;
-		for (int horasDeEstagio : estagios) {
-			creditos += (horasDeEstagio / 300) * 5;
+		for (Estagio estagio : estagios) {
+			creditos += (estagio.getHorasDeEstagio() / 300) * 5;
 		}
 		
 		return creditos;
@@ -48,48 +58,50 @@ public class AtividadesComplementares {
 	
 	private int contaCreditosProjetos() {
 		int creditos = 0;
-		for (int mesesDeProjetos : projetos) {
-			creditos += (mesesDeProjetos / 3) * 2;
+		for (Projeto projeto : projetos) {
+			creditos += (projeto.getMesesDeProjeto() / 3) * 2;
 		}
 		
 		return creditos;
 	}
 	
 	private int contaCreditosCursos() {
-		return ((int) horasDeCursos / 30) * 1;
+		return ((int) cursos.getHorasDeCursos() / 30) * 1;
 	}
 	
 	public String[] pegaAtividades() {
 		String[] atividadesComplementares = new String[indiceEstagios + indiceProjetos + 4];
+		
 		atualizaEstagios(atividadesComplementares);
 		atualizaProjetos(atividadesComplementares);
 		atualizaCursos(atividadesComplementares);
 		atualizaCreditos(atividadesComplementares);
+		
 		return atividadesComplementares;
 	}
 	
 	private void atualizaEstagios(String[] atividadesComplementares) {
 		for (int i = 0; i < indiceEstagios; i++) {
-			atividadesComplementares[i] = "Estagio " + estagios[i];
+			atividadesComplementares[i] = estagios[i].toString();
 		}
 	}
 	
 	private void atualizaProjetos(String[] atividadesComplementares) {
 		int contador = 0;
 		for (int i = indiceEstagios; i < indiceEstagios + indiceProjetos; i++) {
-			atividadesComplementares[i] = "Projeto " + projetos[contador];
+			atividadesComplementares[i] = projetos[contador].toString();
 			contador++;
 		}
 	}
 	
 	private void atualizaCursos(String[] atividadesComplementares) {
-		atividadesComplementares[indiceEstagios + indiceProjetos] = "Cursos " + horasDeCursos;
+		atividadesComplementares[indiceEstagios + indiceProjetos] = cursos.toString();
 	}
 	
 	private void atualizaCreditos(String[] atividadesComplementares) {
-		atividadesComplementares[atividadesComplementares.length - 1] = "Creditos_Cursos " + contaCreditosCursos();
-		atividadesComplementares[atividadesComplementares.length - 2] = "Creditos_Projeto " + contaCreditosProjetos();
 		atividadesComplementares[atividadesComplementares.length - 3] = "Creditos_Estagio " + contaCreditosEstagios();
+		atividadesComplementares[atividadesComplementares.length - 2] = "Creditos_Projeto " + contaCreditosProjetos();
+		atividadesComplementares[atividadesComplementares.length - 1] = "Creditos_Cursos " + contaCreditosCursos();
 	}
 
 }
