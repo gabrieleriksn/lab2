@@ -1,18 +1,22 @@
 package applications;
 
 import entities.Descanso;
-import entities.RegistroTempoOnline;
 import entities.Disciplina;
 import entities.AtividadesComplementares;
 
 public class CoisaBonus {
 
 	public static void main(String[] args) {
-		// Implementação do Bônus 5.1
+		System.out.println("Implementação do Bônus 5.1");
+		System.out.println();
 		testesBonus5_1();
-		// Implementação do Bônus 5.2
+		System.out.println();
+		System.out.println("Implementação do Bônus 5.2");
+		System.out.println();
 		testesBonus5_2();
-		// Implementação do Bônus 5.3
+		System.out.println();
+		System.out.println("Implementação do Bônus 5.3");
+		System.out.println();
 		testesBonus5_3();
 	}
 
@@ -74,7 +78,21 @@ public class CoisaBonus {
 	}
 	
 	private static void testesBonus5_3() {
-		
+		Descanso d1 = new Descanso();
+		System.out.println(d1.getStatusGeral());
+		d1.defineHorasDescanso(52);
+		d1.defineNumeroSemanas(1);
+		System.out.println(d1.getStatusGeral());
+		d1.definirEmoji(":D");
+		System.out.println(d1.getStatusGeral());
+		d1.defineNumeroSemanas(2);
+		System.out.println(d1.getStatusGeral());
+		d1.defineHorasDescanso(26);
+		System.out.println(d1.getStatusGeral());
+		d1.definirEmoji(":(");
+		System.out.println(d1.getStatusGeral());
+		d1.defineNumeroSemanas(1);
+		System.out.println(d1.getStatusGeral());
 	}
 	
 }
