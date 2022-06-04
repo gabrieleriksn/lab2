@@ -24,9 +24,6 @@ public class AtividadesComplementares {
 		}
 		
 		cursos = new Cursos();
-		
-		indiceEstagios = 0;
-		indiceProjetos = 0;
 	}
 	
 	public void adicionarEstagio(int horas) {
@@ -85,12 +82,10 @@ public class AtividadesComplementares {
 	
 	public String[] pegaAtividades() {
 		String[] atividadesComplementares = new String[indiceEstagios + indiceProjetos + 4];
-		
 		atualizaEstagios(atividadesComplementares);
 		atualizaProjetos(atividadesComplementares);
 		atualizaCursos(atividadesComplementares);
 		atualizaCreditos(atividadesComplementares);
-		
 		return atividadesComplementares;
 	}
 	

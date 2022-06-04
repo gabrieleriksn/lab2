@@ -7,16 +7,17 @@ import entities.AtividadesComplementares;
 public class CoisaBonus {
 
 	public static void main(String[] args) {
+		System.out.println("---------------------------");
 		System.out.println("Implementação do Bônus 5.1");
-		System.out.println();
+		System.out.println("---------------------------");
 		testesBonus5_1();
-		System.out.println();
+		System.out.println("---------------------------");
 		System.out.println("Implementação do Bônus 5.2");
-		System.out.println();
+		System.out.println("---------------------------");
 		testesBonus5_2();
-		System.out.println();
+		System.out.println("---------------------------");
 		System.out.println("Implementação do Bônus 5.3");
-		System.out.println();
+		System.out.println("---------------------------");
 		testesBonus5_3();
 	}
 
@@ -71,6 +72,7 @@ public class CoisaBonus {
 		a1.adicionarEstagio(298); // nao deve incrementar nada
 		a1.adicionarEstagio(600, 8); // deve incrementar 10
 		a1.adicionarEstagio(598, 8); // deve incrementar 5
+		a1.adicionarEstagio(600, 16); // deve incrementar 10
 		String[] atividades = a1.pegaAtividades();
 		for (String atividade : atividades) {
 			System.out.println(atividade);
@@ -79,6 +81,7 @@ public class CoisaBonus {
 	
 	private static void testesBonus5_3() {
 		Descanso d1 = new Descanso();
+		d1.definirEmoji(":O");
 		System.out.println(d1.getStatusGeral());
 		d1.defineHorasDescanso(52);
 		d1.defineNumeroSemanas(1);

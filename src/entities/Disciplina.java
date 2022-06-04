@@ -14,6 +14,16 @@ public class Disciplina {
 		inicializaArrays();
 	}
 	
+	public Disciplina(String nomeDisciplina, int numeroDeNotas) {
+		this.nomeDisciplina = nomeDisciplina;
+		inicializaArrays(numeroDeNotas);
+	}
+	
+	public Disciplina(String nomeDisciplina, int numeroDeNotas, int[] pesos) {
+		this.nomeDisciplina = nomeDisciplina;
+		inicializaArrays(numeroDeNotas, pesos);
+	}
+	
 	private void inicializaArrays() {
 		notas = new Nota[4];
 		pesos = new Peso[4];
@@ -23,11 +33,6 @@ public class Disciplina {
 		}
 	}
 	
-	public Disciplina(String nomeDisciplina, int numeroDeNotas) {
-		this.nomeDisciplina = nomeDisciplina;
-		inicializaArrays(numeroDeNotas);
-	}
-	
 	private void inicializaArrays(int numeroDeNotas) {
 		notas = new Nota[numeroDeNotas];
 		pesos = new Peso[numeroDeNotas];
@@ -35,11 +40,6 @@ public class Disciplina {
 			notas[i] = new Nota();
 			pesos[i] = new Peso();
 		}
-	}
-	
-	public Disciplina(String nomeDisciplina, int numeroDeNotas, int[] pesos) {
-		this.nomeDisciplina = nomeDisciplina;
-		inicializaArrays(numeroDeNotas, pesos);
 	}
 	
 	private void inicializaArrays(int numeroDeNotas, int[] pesos) {

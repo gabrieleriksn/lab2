@@ -21,6 +21,6 @@ public class Cursos {
 	
 	@Override
 	public String toString() {
-		return "Cursos " + horasDeCursos;
+		return "Cursos " + String.format("%.1f", horasDeCursos);
 	}
 }

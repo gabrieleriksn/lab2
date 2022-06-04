@@ -5,7 +5,7 @@ public class Descanso {
 	private int horasDescanso;
 	private int numeroSemanas;
 	private String emoji;
-	private boolean descansado = false;
+	private boolean descansado;
 	
 	public void defineHorasDescanso(int horasDescanso) {
 		this.horasDescanso = horasDescanso;
@@ -19,8 +19,23 @@ public class Descanso {
 		this.emoji = emoji;
 	}
 	
+	private boolean estaDescansado() {
+		double descansoPorSemana = (double) horasDescanso / numeroSemanas;
+		if (descansoPorSemana >= 26) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	private void checaMudancaNoEstadoGeral() {
+		if (descansado != estaDescansado()) {
+			this.emoji = null;
+		}
+	}
+	
 	public String getStatusGeral() {
-		mudancaNoEstadoGeral();
+		checaMudancaNoEstadoGeral();
 		if (estaDescansado()) {
 			this.descansado = true;
 			if (emoji != null) {
@@ -42,18 +57,4 @@ public class Descanso {
 		}
 	}
 	
-	private boolean estaDescansado() {
-		double descansoPorSemana = (double) horasDescanso / numeroSemanas;
-		if (descansoPorSemana >= 26) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	private void mudancaNoEstadoGeral() {
-		if (descansado != estaDescansado()) {
-			this.emoji = null;
-		}
-	}
 }
