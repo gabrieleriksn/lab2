@@ -9,6 +9,10 @@ public class AtividadesComplementares {
 	private Cursos cursos; 
 	
 	public AtividadesComplementares() {
+		inicializaAtributos();
+	}
+	
+	private void inicializaAtributos() {
 		estagios = new Estagio[9];
 		for (int i = 0; i < estagios.length; i++) {
 			estagios[i] = new Estagio();
@@ -27,6 +31,11 @@ public class AtividadesComplementares {
 	
 	public void adicionarEstagio(int horas) {
 		estagios[indiceEstagios] = new Estagio(horas);
+		indiceEstagios++;
+	}
+	
+	public void adicionarEstagio(int horas, int meses) {
+		estagios[indiceEstagios] = new Estagio(horas, meses);
 		indiceEstagios++;
 	}
 	
@@ -50,7 +59,12 @@ public class AtividadesComplementares {
 	private int contaCreditosEstagios() {
 		int creditos = 0;
 		for (Estagio estagio : estagios) {
-			creditos += (estagio.getHorasDeEstagio() / 300) * 5;
+			if (estagio.getMesesDeEstagio() / 4 > estagio.getHorasDeEstagio() / 300) {
+				creditos += (estagio.getHorasDeEstagio() / 300) * 5;
+			}
+			else {
+				creditos += (estagio.getMesesDeEstagio() / 4) * 5;
+			}
 		}
 		
 		return creditos;

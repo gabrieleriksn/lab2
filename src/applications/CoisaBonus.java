@@ -12,6 +12,8 @@ public class CoisaBonus {
 		testesBonus5_1();
 		// Implementação do Bônus 5.2
 		testesBonus5_2();
+		// Implementação do Bônus 5.3
+		testesBonus5_3();
 	}
 
 	private static void testesBonus5_1() {
@@ -59,6 +61,19 @@ public class CoisaBonus {
 	}
 	
 	private static void testesBonus5_2() {
+		AtividadesComplementares a1 = new AtividadesComplementares();
+		a1.adicionarEstagio(600, 4); // deve incrementar 5
+		a1.adicionarEstagio(300, 8); // deve incrementar 5
+		a1.adicionarEstagio(298); // nao deve incrementar nada
+		a1.adicionarEstagio(600, 8); // deve incrementar 10
+		a1.adicionarEstagio(598, 8); // deve incrementar 5
+		String[] atividades = a1.pegaAtividades();
+		for (String atividade : atividades) {
+			System.out.println(atividade);
+		}
+	}
+	
+	private static void testesBonus5_3() {
 		
 	}
 	
