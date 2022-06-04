@@ -6,12 +6,48 @@ public class Disciplina {
 	
 	private String nomeDisciplina;
 	private int horasDeEstudo;
-	private Nota[] notas = new Nota[4];
+	private Nota[] notas;
+	private Peso[] pesos;
 	
 	public Disciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
+		inicializaArrays();
+	}
+	
+	private void inicializaArrays() {
+		notas = new Nota[4];
+		pesos = new Peso[4];
 		for (int i = 0; i < notas.length; i++) {
 			notas[i] = new Nota();
+			pesos[i] = new Peso();
+		}
+	}
+	
+	public Disciplina(String nomeDisciplina, int numeroDeNotas) {
+		this.nomeDisciplina = nomeDisciplina;
+		inicializaArrays(numeroDeNotas);
+	}
+	
+	private void inicializaArrays(int numeroDeNotas) {
+		notas = new Nota[numeroDeNotas];
+		pesos = new Peso[numeroDeNotas];
+		for (int i = 0; i < notas.length; i++) {
+			notas[i] = new Nota();
+			pesos[i] = new Peso();
+		}
+	}
+	
+	public Disciplina(String nomeDisciplina, int numeroDeNotas, int[] pesos) {
+		this.nomeDisciplina = nomeDisciplina;
+		inicializaArrays(numeroDeNotas, pesos);
+	}
+	
+	private void inicializaArrays(int numeroDeNotas, int[] pesos) {
+		notas = new Nota[numeroDeNotas];
+		this.pesos = new Peso[numeroDeNotas];
+		for (int i = 0; i < notas.length; i++) {
+			notas[i] = new Nota();
+			this.pesos[i] = new Peso(pesos[i]);
 		}
 	}
 	
@@ -20,24 +56,29 @@ public class Disciplina {
 	}
 	
 	public void cadastraNota(int nota, double valorNota) {
-		notas[nota - 1] = new Nota(valorNota);
+		notas[nota - 1].setValorNota(valorNota);
 	}
 	
 	public boolean aprovado() {
-		if (mediaDoAluno(notas) >= 7) {
+		if (mediaDoAluno(notas, pesos) >= 7) {
 			return true;
 		}
 		
 		return false;
 	}
 	
-	private double mediaDoAluno(Nota[] notas) {
+	private double mediaDoAluno(Nota[] notas, Peso[] pesos) {
 		double soma = 0;
-		for (Nota nota : notas) {
-			soma += nota.getValorNota();
+		for (int i = 0; i < notas.length; i++) {
+			soma += notas[i].getValorNota() * pesos[i].getValorDoPeso();
 		}
 		
-		return soma / notas.length;
+		int somaDosPesos = 0;
+		for (int i = 0; i < pesos.length; i++) {
+			somaDosPesos += pesos[i].getValorDoPeso();
+		}
+		
+		return soma / somaDosPesos;
 	}
 	
 	@Override
@@ -46,7 +87,7 @@ public class Disciplina {
 			   + " " 
 			   + horasDeEstudo 
 			   + " " 
-			   + mediaDoAluno(notas) 
+			   + String.format("%.1f", mediaDoAluno(notas, pesos)) 
 			   + " " 
 			   + Arrays.toString(notas);
 	}
