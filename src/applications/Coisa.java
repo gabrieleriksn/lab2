@@ -5,7 +5,20 @@ import entities.RegistroTempoOnline;
 import entities.Disciplina;
 import entities.AtividadesComplementares;
 
+/**
+ * Essa classe é responsável por realizar os testes das implementações
+ * das classes Descanso, RegistroOnline, Disciplina e AtividadesComplementares.
+ * 
+ * @author Gabriel Erik Silva Nunes - 121110201
+ *
+ */
 public class Coisa {
+	/**
+	 * O método main da classe faz os testes e organiza a disposição
+	 * no terminal dos resultados.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		descanso();
 		System.out.println("-----");

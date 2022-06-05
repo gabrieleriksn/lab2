@@ -4,19 +4,31 @@ import entities.Descanso;
 import entities.Disciplina;
 import entities.AtividadesComplementares;
 
+/**
+ * Essa classe √© respons√°vel por realizar os testes das implementa√ß√µes
+ * dos B√¥nus 5.1, 5.2 e 5.3.
+ * 
+ * @author Gabriel Erik Silva Nunes - 121110201
+ *
+ */
 public class CoisaBonus {
-
+	/**
+	 * O m√©todo main da classe faz os testes e organiza a disposi√ß√£o
+	 * no terminal dos resultados.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		System.out.println("---------------------------");
-		System.out.println("ImplementaÁ„o do BÙnus 5.1");
+		System.out.println("Implementa√ß√£o do B√¥nus 5.1");
 		System.out.println("---------------------------");
 		testesBonus5_1();
 		System.out.println("---------------------------");
-		System.out.println("ImplementaÁ„o do BÙnus 5.2");
+		System.out.println("Implementa√ß√£o do B√¥nus 5.2");
 		System.out.println("---------------------------");
 		testesBonus5_2();
 		System.out.println("---------------------------");
-		System.out.println("ImplementaÁ„o do BÙnus 5.3");
+		System.out.println("Implementa√ß√£o do B√¥nus 5.3");
 		System.out.println("---------------------------");
 		testesBonus5_3();
 	}
@@ -35,7 +47,7 @@ public class CoisaBonus {
 		System.out.println(d1.toString());
 		System.out.println(d1.aprovado());
 		System.out.println();
-		System.out.println("Construtor com nome da disciplina, qtd de notas e especificaÁ„o dos pesos");
+		System.out.println("Construtor com nome da disciplina, qtd de notas e especifica√ß√£o dos pesos");
 		int[] pesos = new int[] { 1, 2, 3, 1 };
 		Disciplina d2 = new Disciplina("Prog II", 4, pesos);
 		System.out.println(d2.aprovado());

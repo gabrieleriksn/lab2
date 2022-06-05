@@ -19,7 +19,7 @@ public class Descanso {
 	private int horasDescanso;
 	/**
 	 * Numero de semanas. É um valor inteiro que representa uma quantidade
-	 * de semanas nas quais as horas de descanso estão divididas.
+	 * de semanas nas quais as horas de descanso estão distribuídas.
 	 */
 	private int numeroSemanas;
 	/**
@@ -36,7 +36,7 @@ public class Descanso {
 	
 	/**
 	 * O construtor dessa classe, por padrão, inicializa o numero de horasDescanso 
-	 * e de numeroSemanas com 0. O emoji, por ainda não ser definido, começa como 
+	 * e de numeroSemanas com zero. O emoji, por ainda não ser definido, começa como 
 	 * "null" e o atributo "descansado" tem valor inicial false, uma vez que a 
 	 * especificação demandada para o programa é que, inicialmente, o aluno 
 	 * comece como "cansado" caso ainda não tenha definido horas suficientes de
@@ -48,7 +48,7 @@ public class Descanso {
 	/**
 	 * Esse método atribui ao atributo horasDescanso da Classe um valor.
 	 * 
-	 * @param horasDescanso Esse parâmetro representa o valor de horas
+	 * @param horasDescanso Esse parâmetro representa o valor inteiro de horas
 	 * de descanso que deve ser atribuído ao atributo da classe.
 	 */
 	public void defineHorasDescanso(int horasDescanso) {
@@ -58,7 +58,7 @@ public class Descanso {
 	/**
 	 * Esse método atribui ao atributo numeroSemanas da Classe um valor.
 	 * 
-	 * @param numeroSemanas Esse parâmetro representa o valor de
+	 * @param numeroSemanas Esse parâmetro representa o valor inteiro de
 	 * número de semanas que deve ser atribuído ao atributo da classe.
 	 */
 	public void defineNumeroSemanas(int numeroSemanas) {
