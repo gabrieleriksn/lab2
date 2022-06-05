@@ -110,6 +110,17 @@ public class Disciplina {
 	}
 	
 	/**
+	 * Esse método retorna o nome da disciplina.
+	 * (Foi criado para auxiliar no desenvolvimento do CoisaCLI).
+	 * 
+	 * @return Uma String contendo o nome da disciplina associado ao atributo
+	 * da Classe.
+	 */
+	public String getNomeDisciplina() {
+		return nomeDisciplina;
+	}
+	
+	/**
 	 * Esse método é responsável por acrescentar horas de estudo
 	 * que o indivíduo dispôs para a disciplina. 
 	 * 

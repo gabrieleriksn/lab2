@@ -56,7 +56,18 @@ public class RegistroTempoOnline {
 		this.nomeDisciplina = nomeDisciplina;
 		this.tempoOnlineEsperado = tempoOnlineEsperado;
 	}
-
+	
+	/**
+	 * Esse método retorna o nome da disciplina associado ao registro online.
+	 * (Foi criado para auxiliar no desenvolvimento do CoisaCLI).
+	 * 
+	 * @return Uma String contendo o nome da disciplina associada ao registro
+	 * online dela.
+	 */
+	public String getNomeDisciplina() {
+		return nomeDisciplina;
+	}
+	
 	/**
 	 * Esse método adiciona ao atributo tempoOnline horas de conexão online.
 	 * 
