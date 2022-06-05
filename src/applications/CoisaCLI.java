@@ -3,8 +3,25 @@ package applications;
 import java.util.Scanner;
 import entities.Aluno;
 
+/**
+ * Essa classe é responsável por realizar a interação com o usuário
+ * e tornar o processo de lidar com a rotina de descanso, com os
+ * registros de tempo online, com as disciplinas e com as atividades
+ * complementares mais interativo e facilitado para um usuário final.
+ * 
+ * @author Gabriel Erik Silva Nunes - 121110201
+ *
+ */
+
 public class CoisaCLI {
 
+	/**
+	 * O método main da classe executa os menus de opções disponibilizados
+	 * para o usuário.
+	 * 
+	 * @param args
+	 */
+	
 	public static void main(String[] args) {
 		interacaoInicial();
 		menuPrincipal(cadastraAluno());
@@ -76,7 +93,11 @@ public class CoisaCLI {
 		                  + "Portanto, pode conter alguns erros...%n"
 		                  + "Aceito abertamente críticas e sugestões de melhoria!%n"
 		                  + "Abraços cordiais!%n"
-		                  + "Ass: Gabriel Erik Silva Nunes - Turma I do LAB II.%n");
+		                  + "Ass: Gabriel Erik Silva Nunes - Turma I do LAB II.%n"
+						  + "Fiz o versionamento do código e disponibilizarei de forma%n"
+						  + "pública, quando o prazo acabar, no link: %n"
+						  + "https://github.com/gabrieleriksn/lab2%n");
+				System.out.println("======================================================");
 				break;
 			} else {
 				System.out.println("Opção inválida.");
@@ -87,7 +108,8 @@ public class CoisaCLI {
 	private static void menuOpcao_1(Aluno aluno) {
 		Scanner sc = new Scanner(System.in);
 		while (true) {
-			System.out.printf("Você está na seção 'rotina de descanso', o que deseja%n" + "fazer?%n");
+			System.out.printf("Você está na seção 'rotina de descanso', o que deseja%n" 
+		                      + "fazer?%n");
 			System.out.println("======================================================");
 			System.out.println("1 - Definir horas de descanso.");
 			System.out.println("2 - Definir número de semanas.");
@@ -124,7 +146,6 @@ public class CoisaCLI {
 				System.out.println("Status: " + aluno.getRotinaDeDescanso().getStatusGeral());
 				System.out.println("======================================================");
 			} else if (opcao.equals("5")) {
-				System.out.println("======================================================");
 				break;
 			} else {
 				System.out.println("Opção inválida.");
@@ -165,7 +186,10 @@ public class CoisaCLI {
 				System.out.println("Sucesso!");
 				System.out.println("======================================================");
 			} else if (opcao.equals("2")) {
-				aluno.exibirRegistrosOnline();
+				String[] registros = aluno.pegaRegistrosOnline();
+				for (String registro : registros) {
+					System.out.println(registro);
+				}
 				System.out.println("======================================================");
 			} else if (opcao.equals("3")) {
 				System.out.print("Forneça o nome da disciplina: ");
@@ -221,7 +245,10 @@ public class CoisaCLI {
 				System.out.println("Sucesso!");
 				System.out.println("======================================================");
 			} else if (opcao.equals("2")) {
-				aluno.exibirDisciplinas();
+				String[] disciplinas = aluno.pegaDisciplinas();
+				for (String disciplina : disciplinas) {
+					System.out.println(disciplina);
+				}
 				System.out.println("======================================================");
 			} else if (opcao.equals("3")) {
 				System.out.print("Forneça o nome da disciplina: ");
@@ -297,7 +324,10 @@ public class CoisaCLI {
 				System.out.println("A quantidade de créditos até então é igual a " + aluno.getAtividadesComplementares().contaCreditos());
 				System.out.println("======================================================");
 			} else if (opcao.equals("5")) {
-				aluno.exibirAtividadesComplementares();
+				String[] atividades = aluno.getAtividadesComplementares().pegaAtividades();
+				for (String atividade : atividades) {
+					System.out.println(atividade);
+				}
 				System.out.println("======================================================");
 			} else if (opcao.equals("6")){
 				break;

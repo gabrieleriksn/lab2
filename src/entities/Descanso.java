@@ -1,7 +1,7 @@
 package entities;
 
 /**
- * A classe Descanso é usada para referenciar e lidar com a rotina de descanso 
+ * Essa classe é usada para referenciar e lidar com a rotina de descanso 
  * de um aluno, de modo que, sem contar com as horas que ele passa dormindo, 
  * ele possa ter horas de lazer suficientes.
  * 
